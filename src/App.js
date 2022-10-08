@@ -5,6 +5,8 @@ import About from './components/Pages/About';
 import Services from './components/Common/Services';
 import Portfolio from './components/Common/Portfolio';
 import Contact from './components/Pages/Contact';
+import Team from './components/Common/Team';
+import Timeline from './components/Common/Timeline';
 
 function App() {
   return (
@@ -35,8 +37,14 @@ function App() {
         <Route
         path='/contact'
         element={<Contact/>}
-
         />
+
+        <Route 
+          path='/team'
+          element={<Team />}
+          />
+
+
         </Routes>
       </PageWrapper>
    </Router>
