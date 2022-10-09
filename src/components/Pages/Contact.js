@@ -36,8 +36,8 @@ class Contact extends Component {
                                 return (
                                     <div className="col-md-6" key={sectionIndex}>
                                         {section.map((field,i) => {
-                                            return <Field {
-                                                        ...field} 
+                                            return <Field 
+                                                        {...field} 
                                                         key={i} 
                                                         value = {this.props.values[field.name]}
                                                         name={field.name}
@@ -82,12 +82,7 @@ class Contact extends Component {
                 </div>
             </div>
         </footer>
-
-
         </div>
-        
-
-
         )
     }
 }
@@ -100,13 +95,16 @@ export default withFormik({
         message:''
     }),
     handleSubmit:(values, {setSubmitting}) =>{
-        alert('Submitte the Form Hurray!', JSON.stringify(values));
+        alert('Submitted the Form Hurray!', JSON.stringify(values));
     },
     validate: values => {
         const errors = {};
 
         Object.keys(values).map(v =>{
-            
+            if(!values[v]){
+                errors[v] = 'This value is Required';
+            }
         })
+        return errors;
     }
 })(Contact);
