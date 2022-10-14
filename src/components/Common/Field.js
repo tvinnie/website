@@ -4,12 +4,12 @@ class Field extends Component {
 
     render(){
         return(
-            <div class="form-group">
+            <div className="form-group">
                 {
                     this.props.elementName === 'input' ? 
 
                     <input 
-                    class="form-control" 
+                    className="form-control" 
                     id={this.props.name}
                     type={this.props.type}
                     placeholder={this.props.placeholder}
@@ -22,7 +22,7 @@ class Field extends Component {
                     :
 
                     <textarea 
-                    class="form-control" 
+                    className="form-control" 
                     id={this.props.name}
                     placeholder={this.props.placeholder}
                     required="required" 

@@ -6,47 +6,81 @@ import Services from './components/Common/Services';
 import Portfolio from './components/Common/Portfolio';
 import Contact from './components/Pages/Contact';
 import Team from './components/Common/Team';
-import Timeline from './components/Common/Timeline';
+import AdminWrapper from './components/AdminWrapper';
+import Login from './components/Pages/Login';
 
 function App() {
   return (
     <Router>
-      <PageWrapper>
-        <Routes>
+      
+       <Routes>
+     
+        <Route
+          path="/admin"
+          element = { 
+            <AdminWrapper>
+              <Login />
+            </AdminWrapper>
+          }
+        />  
 
           <Route 
           path="/"
-          element={<Home />}
+          element={
+          <PageWrapper >
+              <Home />
+          </PageWrapper>
+        }
           />
 
         <Route 
           path="/about"
-          element={<About />}
+          element={
+            <PageWrapper >
+              <About />
+          </PageWrapper>
+          }
           />
         
         <Route 
           path='/services'
-          element={<Services/>}
+          element={
+            <PageWrapper >
+              <Services />
+          </PageWrapper>
+          }
         />
 
         <Route 
           path='/portfolio'
-          element={<Portfolio/>}
+          element={
+            <PageWrapper >
+              <Portfolio />
+          </PageWrapper>
+          }
         />
 
         <Route
         path='/contact'
-        element={<Contact/>}
+        element={
+          <PageWrapper >
+              <Contact />
+          </PageWrapper>
+        }
         />
 
         <Route 
           path='/team'
-          element={<Team />}
+          element={
+            <PageWrapper >
+              <Team />
+          </PageWrapper>
+          }
           />
 
 
         </Routes>
-      </PageWrapper>
+      {/* </PageWrapper> */}
    </Router>
   );
 }

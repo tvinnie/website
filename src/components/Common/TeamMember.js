@@ -4,16 +4,16 @@ class TeamMember extends Component {
 
     render(){
         return(
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src={this.props.image} alt="..." />
+            <div className="col-lg-4">
+                <div className="team-member">
+                    <img className="mx-auto rounded-circle" src={this.props.image} alt="..." />
                     <h4>{this.props.name}</h4>
-                    <p class="text-muted">{this.props.title}</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                    <p className="text-muted">{this.props.title}</p>
+                    <a className="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i className="fab fa-twitter"></i></a>
+                    <a className="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i className="fab fa-facebook-f"></i></a>
+                    <a className="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i className="fab fa-linkedin-in"></i></a>
                 </div>
-                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">{this.props.description}</p></div>
+                <div className="col-lg-8 mx-auto text-center"><p className="large text-muted">{this.props.description}</p></div>
         </div>
         )
     }
