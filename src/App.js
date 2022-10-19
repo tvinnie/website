@@ -1,6 +1,7 @@
 import Home from './components/Pages/Home';
 import PageWrapper from './components/PageWrapper';
-import { BrowserRouter as Router, Link, Route, Routes, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Link,Navigate, Route, Routes} from 'react-router-dom';
+import { useState } from 'react';
 import About from './components/Pages/About';
 import Services from './components/Common/Services';
 import Portfolio from './components/Common/Portfolio';
@@ -12,7 +13,7 @@ import Login from './components/Pages/Login';
 import Dashboard from './components/Pages/Dashboard';
 
 import {connect} from 'react-redux';
-import { useState } from 'react';
+
 
 function App() {
   const [loggedIn] = useState(true)
@@ -20,33 +21,28 @@ function App() {
     <Router>
       
        <Routes>
-     
+        
         <Route
           path="/admin"
           element = {
               <AdminWrapper>
-              
-                <Login />
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
-                {/* <Dashboard />   */}
-              
-             
+              loggedIn ?
+             ( <Dashboard />)
+              :
+                (Navigate replace t0={<Login/>})
               
             </AdminWrapper>
-           
-          }
-        />  
+          
+                
+               } />  
 
           <Route 
           path="/"
           element={
-          <PageWrapper >
-              <Home />
-          </PageWrapper>
-        }
-          />
+            <PageWrapper >
+                <Home />
+            </PageWrapper>
+         } />
 
         <Route 
           path="/about"
@@ -54,8 +50,7 @@ function App() {
             <PageWrapper >
               <About />
           </PageWrapper>
-          }
-          />
+          } />
         
         <Route 
           path='/services'
@@ -63,8 +58,7 @@ function App() {
             <PageWrapper >
               <Services />
           </PageWrapper>
-          }
-        />
+          } />
 
         <Route 
           path='/portfolio'
@@ -72,8 +66,7 @@ function App() {
             <PageWrapper >
               <Portfolio />
           </PageWrapper>
-          }
-        />
+          } />
 
         <Route
         path='/contact'
@@ -81,8 +74,7 @@ function App() {
           <PageWrapper >
               <Contact />
           </PageWrapper>
-        }
-        />
+        } />
 
         <Route 
           path='/team'
@@ -90,12 +82,10 @@ function App() {
             <PageWrapper >
               <Team />
           </PageWrapper>
-          }
-          />
+          } />
 
 
         </Routes>
-    
    </Router>
   );
 }

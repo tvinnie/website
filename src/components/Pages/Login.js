@@ -21,13 +21,13 @@ class Login extends Component{
                     <div className="login-form">
                         <div className="row">
                             <h1>Login</h1>
-                        
+                        </div>
                         <div className="row">
 
                             <form onSubmit={e => {
                                 e.preventDefault();
                                 this.props.login(this.props.values.email, 
-                                    this.props.values.password)
+                                    this.props.values.password);
                             }}>
                             {
                                 fields.map((f,i) => {
@@ -51,14 +51,14 @@ class Login extends Component{
                                 })
                             }
                             <div className="col-md-12">
-                                <button className="btn btn-primary" type="submit" >
+                                <button className="btn btn-primary" >
                                     Login
                                 </button>
                             </div>
                             </form>
                            
                         </div>
-                    </div>
+                    
                     </div>
                 </div>
                  

@@ -1,7 +1,8 @@
+// functions returning type and payload
 export const login = (email, pass) => {
     return {
         type: 'LOGIN',
-        payload:(email, pass)
+        payload:{email, pass}
     }
 }
 
