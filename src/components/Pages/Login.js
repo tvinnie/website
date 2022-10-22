@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import Field from "../Common/Field";
 import {withFormik} from 'formik';
-import * as Yup from 'yup';
 import { connect } from "react-redux";
-
+import * as Yup from 'yup';
 import * as AuthActions from '../../store/actions/authActions';
 
 const fields = [
@@ -19,42 +18,40 @@ class Login extends Component{
             <div className="login-page">
                 <div className="container">
                     <div className="login-form">
+                        <div className="row"> <h1>Login</h1>  </div>
+
                         <div className="row">
-                            <h1>Login</h1>
-                        </div>
-                        <div className="row">
+                            <form onSubmit={ (e)=> {
+                                e.preventDefault()
+                                this.props.login(this.props.values.email, this.props.values.password);
+                            }}
+                                >
+                                    {
+                                        fields.map((f,i) => {
+                                            return(
+                                                <div className="col-md-12">
 
-                            <form onSubmit={e => {
-                                e.preventDefault();
-                                this.props.login(this.props.values.email, 
-                                    this.props.values.password);
-                            }}>
-                            {
-                                fields.map((f,i) => {
-                                    return(
-                                        <div className="col-md-12">
+                                                    <Field 
+                                                        key={i}
+                                                        {...f}
+                                                        value = {this.props.values[f.name]}
+                                                        name = {f.name}
+                                                        onChange={this.props.handleChange}
+                                                        onBlur={this.props.handleBlur}
+                                                        touched={(this.props.touched[f.name])}
+                                                        errors = {this.props.errors[f.name]}
 
-                                    <Field 
-                                        {...f}
-                                        key={i}
-                                        value = {this.props.values[f.name]}
-                                        name = {f.name}
-                                        onChange={this.props.handleChange}
-                                        onBlur={this.props.handleBlur}
-                                        touched={(this.props.touched[f.name])}
-                                        errors = {this.props.errors[f.name]}
+                                                    />
 
-                                    />
-
-                                        </div>
-                                    )
-                                })
-                            }
-                            <div className="col-md-12">
-                                <button className="btn btn-primary" >
-                                    Login
-                                </button>
-                            </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                <div className="col-md-12">
+                                    <button className="btn btn-primary" type="submit" >
+                                        Login
+                                    </button>
+                                </div>
                             </form>
                            
                         </div>
@@ -78,7 +75,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         login: (email, pass) => {
-            dispatch(AuthActions.login(email, pass));
+            dispatch(AuthActions.login(email,pass));
         } 
     }
 }

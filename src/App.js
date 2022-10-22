@@ -2,6 +2,7 @@ import Home from './components/Pages/Home';
 import PageWrapper from './components/PageWrapper';
 import { BrowserRouter as Router, Link,Navigate, Route, Routes} from 'react-router-dom';
 import { useState } from 'react';
+
 import About from './components/Pages/About';
 import Services from './components/Common/Services';
 import Portfolio from './components/Common/Portfolio';
@@ -17,75 +18,22 @@ import {connect} from 'react-redux';
 
 function App() {
   const [loggedIn] = useState(true)
+
   return (
     <Router>
-      
+
        <Routes>
-        
+
         <Route
           path="/admin"
           element = {
-              <AdminWrapper>
-              loggedIn ?
-             ( <Dashboard />)
-              :
-                (Navigate replace t0={<Login/>})
-              
-            </AdminWrapper>
+           <Dashboard />
+          }
           
-                
-               } />  
-
-          <Route 
-          path="/"
-          element={
-            <PageWrapper >
-                <Home />
-            </PageWrapper>
-         } />
-
-        <Route 
-          path="/about"
-          element={
-            <PageWrapper >
-              <About />
-          </PageWrapper>
-          } />
-        
-        <Route 
-          path='/services'
-          element={
-            <PageWrapper >
-              <Services />
-          </PageWrapper>
-          } />
-
-        <Route 
-          path='/portfolio'
-          element={
-            <PageWrapper >
-              <Portfolio />
-          </PageWrapper>
-          } />
-
-        <Route
-        path='/contact'
-        element={
-          <PageWrapper >
-              <Contact />
-          </PageWrapper>
-        } />
-
-        <Route 
-          path='/team'
-          element={
-            <PageWrapper >
-              <Team />
-          </PageWrapper>
-          } />
-
+          /> 
 
         </Routes>
+
    </Router>
   );
 }
@@ -106,3 +54,57 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
+
+
+
+
+
+// more routes
+// ------------------
+// <Route 
+// path="/"
+// element={
+//   <PageWrapper >
+//       <Home />
+//   </PageWrapper>
+// }/>
+
+// <Route 
+// path="/about"
+// element={
+//   <PageWrapper >
+//     <About />
+// </PageWrapper>
+// } />
+
+// <Route 
+// path='/services'
+// element={
+//   <PageWrapper >
+//     <Services />
+// </PageWrapper>
+// } />
+
+// <Route 
+// path='/portfolio'
+// element={
+//   <PageWrapper >
+//     <Portfolio />
+// </PageWrapper>
+// } />
+
+// <Route
+// path='/contact'
+// element={
+// <PageWrapper >
+//     <Contact />
+// </PageWrapper>
+// } />
+
+// <Route 
+// path='/team'
+// element={
+//   <PageWrapper >
+//     <Team />
+// </PageWrapper>
+// } />
